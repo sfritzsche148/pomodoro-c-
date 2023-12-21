@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
+        <!--Left Side-->
+        <TextBlock x:Name="modeBlock" Text="Mode" Grid.Row="0" TextAlignment="Center" />
+        <TextBlock x:Name="timer" Text="18:38" FontSize="80" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
+        <!--Rigth Side-->
+        <TextBlock Text="Options" Grid.Column="1" TextAlignment="Center"/>
+
+        <TextBlock Text="Länge der WorkTime" Grid.Column="1" Grid.Row="1" TextAlignment="Center"/>
+        <TextBlock Text="{Binding Path=Value, ElementName=workTimer}"  Grid.Row="1" Grid.Column="1" Margin="0, 15, 0, 0" TextAlignment="Center"/>
+        <Slider x:Name="workTimer" Minimum="25" Maximum="55" Grid.Column="1" Grid.Row="1" Margin="0, 30, 0,0"/>
+
+        <TextBlock Text="Länge der kurzen Pause" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Margin="0, 60, 0,0"/>
+        <TextBlock Text="{Binding Path=Value, ElementName=shortBreak}" Grid.Row="1" Grid.Column="1" Margin="0, 75, 0, 0" TextAlignment="Center"/>
+        <Slider x:Name="shortBreak" Minimum="5" Maximum="10" Grid.Column="1" Grid.Row="1" Margin="0, 90, 0,0"/>
+
+        <TextBlock Text="Länge der langen Pause" Grid.Column="1" Grid.Row="1" TextAlignment="Center" Margin="0, 110, 0,0"/>
+        <TextBlock Text="{Binding Path=Value, ElementName=longBreak}" Grid.Row="1" Grid.Column="1" TextAlignment="Center" Margin="0, 125, 0,0"/>
+        <Slider x:Name="longBreak" Minimum="20" Maximum="40" Grid.Column="1" Grid.Row="1" Margin="0, 140, 0,0"/>
+
+        <Button Content="Starten" Grid.Column="1" Grid.Row="2"/>
+        <Button Content="Beenden" Grid.Column="1" Grid.Row="3"/>
     </Grid>
 </Window>
